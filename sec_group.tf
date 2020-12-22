@@ -1,26 +1,20 @@
-resource "aws_security_group" "ticket1" {
-  name        = "ticket1"
-  description = "Allow TLS inbound traffic"
-
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+instance_type = "t2.micro"
+key_name      = "RFM"
+region        = "us-east-1"
+ami_id        = ""
+subnet_id     = ""
+volume_size   = "250"
+vpc_id        = ""
+cidr_blocks     = [
+    "10.1.0.0/16",
+    "10.2.0.0/16",
+    "100.100.0.0/16"
+]
+tags = {
+    Name        = "VPC_Project"
+    Environment = "Dev"
+    Team        = "DevOps"
+    Department  = "Operations"
+    Bill        = "CFO"
+    Quarter     = "1"
 }
